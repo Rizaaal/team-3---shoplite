@@ -23,10 +23,6 @@ li:hover,
   cursor: pointer;
 }
 
-p {
-  font-size: 14px;
-}
-
 footer .flex-container {
   display: flex;
   justify-content: space-between;
@@ -66,7 +62,12 @@ footer .main-container {
 }
 
 .description p {
+  font-size: 14px;
   margin-bottom: 1rem;
+}
+
+.copyright {
+  margin-bottom: 0;
 }
 
 .description svg {

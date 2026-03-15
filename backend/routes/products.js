@@ -1,6 +1,7 @@
 const express = require('express');
 const { protectedRoute } = require('../middlewares/protectedRoute');
 const router = express.Router();
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 const mockProducts = [
   // GPU (Schede Video)
@@ -49,6 +50,7 @@ const mockProducts = [
   { id: 33, name: "Logitech G915 Keyboard", description: "Low-profile wireless mechanical keyboard with GL switches, RGB and multi-device connectivity.", price: 229.99, category: "Accessories", qty: 12 },
   { id: 34, name: "Razer BlackWidow V4 Keyboard", description: "Full-size mechanical keyboard with Razer Yellow switches, RGB Chroma and dedicated macro keys.", price: 139.99, category: "Accessories", qty: 16 },
 ];
+const enumPaymentMethod = ["card"];
 
 // get all products
 router.get('/', (req, res) => {
@@ -94,7 +96,51 @@ router.get('/category/:category', (req, res) => {
     console.error(error);
     res.status(500).json({ error: "server error: couldn't get products"})
   }
-})
+});
+
+// richiesta di pagamento
+router.post("/pay", async (req, res, next) => {
+  try {
+    const { product_id, paymentMethod } = req.body;
+
+    // Controllo paymentMethod
+    if (!enumPaymentMethod.includes(paymentMethod)) {
+      return res.status(400).json({ error: "Metodo di pagamento non valido" });
+    }
+
+    // Controllo product_id
+    const product = mockProducts.find(p => p.id === product_id);
+
+    if (!product.price || product.price <= 0) {
+      return res.status(400).json({ error: "Il prezzo totale non è valido" });
+    }
+
+    // Trasformiamo l'importo in centesimi per Stripe
+    const amount = Math.round(parseFloat(product.price.toString()) * 100);
+
+    // Creazione PaymentIntent su Stripe
+    const paymentIntent = await stripe.paymentIntents.create({
+      amount,
+      currency: "eur",
+      payment_method_types: [paymentMethod],
+    });
+
+    res.status(201).json({
+      message: "Pagamento in corso...",
+      paymentIntentId: paymentIntent.id,
+      clientSecret: paymentIntent.client_secret,
+      orderId: 1,
+      stripeStatus: paymentIntent.status,
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+// conferma pagamento
+router.post("/purchase-confirm", async (req, res, next) => {
+  // implement
+});
 
 // PROTECTED ROUTES
 

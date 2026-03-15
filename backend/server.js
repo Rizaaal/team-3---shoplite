@@ -1,12 +1,12 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+require('dotenv').config();
 const { productsRouter } = require('./routes/products');
 const { usersRouter } = require('./routes/users');
 const { loginRouter } = require('./routes/login');
 // const db = require("./db")
 
-require('dotenv').config();
 const app = express();
 const port = 8080;
 

@@ -26,7 +26,6 @@ yarn-error.log
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-!.vscode/mcp.json
 .history/*
 
 # Miscellaneous
@@ -37,16 +36,10 @@ yarn-error.log
 /libpeerconnection.log
 testem.log
 /typings
-__screenshots__/
 
 # System files
 .DS_Store
 Thumbs.db
 
-# backend folder files
-/backend/node_modules
-/backend/dist
-/backend/.env
-/backend/.env.*
-/backend/.vscode
-/backend/.idea
+# Environment variables
+.env

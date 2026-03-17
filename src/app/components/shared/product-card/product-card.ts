@@ -1,5 +1,6 @@
-import { Component, input } from '@angular/core';
+import { Component, inject, input, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CartService } from '../../../services/cart-service';
 
 @Component({
   selector: 'app-product-card',
@@ -9,6 +10,8 @@ import { CommonModule } from '@angular/common';
   styleUrl: './product-card.css',
 })
 export class ProductCard {
+  cartEvent = output<Product>();
+
   product = input<Product>({
     id: 1,
     nome: 'prodotto',
@@ -18,6 +21,10 @@ export class ProductCard {
     stock: 1,
     image: 'placeholder.jpg',
   });
+
+  addToCart() {
+    this.cartEvent.emit(this.product());
+  }
 }
 
 export type Product = {

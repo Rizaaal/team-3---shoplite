@@ -1,12 +1,16 @@
 .cart-container {
+  height: 80vh;
+  padding: 1rem;
+}
+
+.cart-empty {
+  margin-top: 10rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80vh;
 }
 
 button {
-  margin-top: 1.5rem;
   background-color: rgb(37, 99, 235);
   color: white;
   font-weight: 500;
@@ -16,9 +20,52 @@ button {
   border-radius: 0.7rem;
 }
 
+.btn-primary {
+  margin-top: 1.5rem;
+}
+
 .cart-empty {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+img {
+  max-width: 50%;
+  object-fit: cover;
+}
+
+.cart-list {
+  padding: 1rem;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  height: 100px;
+  background-color: #e2e2e2;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  padding: .5rem;
+}
+
+.info-container {
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+}
+
+.cart-item-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-item-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.btn-qty {
+  padding: .3rem;
+
+}

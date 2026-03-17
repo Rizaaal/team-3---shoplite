@@ -1,7 +1,8 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { CartService, CartItem } from '../../services/cart-service';
+import { CartService } from '../../services/cart-service';
+import { Product } from '../../components/shared/product-card/product-card';
 
 @Component({
   selector: 'app-cart',
@@ -16,14 +17,14 @@ export class Carrello {
 
   cartItems = computed(() => this.cartService.items());
 
-  total = computed(() => this.cartItems().reduce((sum, item) => sum + item.prezzo * item.qty, 0));
+  total = computed(() => this.cartItems().reduce((sum, item) => sum + item.prezzo * item.stock, 0));
 
-  increaseQty(item: CartItem) {
-    this.cartService.updateQty(item.id, item.qty + 1);
+  increaseQty(item: Product) {
+    this.cartService.updateQty(item.id, item.stock + 1);
   }
 
-  decreaseQty(item: CartItem) {
-    if (item.qty > 1) this.cartService.updateQty(item.id, item.qty - 1);
+  decreaseQty(item: Product) {
+    if (item.stock > 1) this.cartService.updateQty(item.id, item.stock - 1);
   }
 
   removeItem(id: number) {

@@ -1,21 +1,22 @@
 import { Injectable, signal } from '@angular/core';
+import { Product } from '../components/shared/product-card/product-card';
 
 @Injectable({ providedIn: 'root' })
 export class CartService {
-  items = signal<CartItem[]>([]);
+  items = signal<Product[]>([]);
 
-  add(product: CartItem) {
+  add(product: Product) {
     this.items.update((cart) => {
       const existing = cart.find((i) => i.id === product.id);
       if (existing) {
-        return cart.map((i) => (i.id === product.id ? { ...i, qty: i.qty + 1 } : i));
+        return cart.map((i) => (i.id === product.id ? { ...i, stock: i.stock + 1 } : i));
       }
-      return [...cart, { ...product, qty: 1 }];
+      return [...cart, { ...product, stock: 1 }];
     });
   }
 
-  updateQty(id: number, qty: number) {
-    this.items.update((cart) => cart.map((i) => (i.id === id ? { ...i, qty } : i)));
+  updateQty(id: number, stock: number) {
+    this.items.update((cart) => cart.map((i) => (i.id === id ? { ...i, stock } : i)));
   }
 
   remove(id: number) {
@@ -26,12 +27,3 @@ export class CartService {
     this.items.set([]);
   }
 }
-
-export type CartItem = {
-  id: number;
-  nome: string;
-  categoria: string;
-  prezzo: number;
-  image: string;
-  qty: number;
-};

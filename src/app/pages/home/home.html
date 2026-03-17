@@ -163,7 +163,7 @@
           <p>{{ productsService.products.error() }}</p>
         } @else {
           @for (product of featuredProducts(); track $index) {
-            <app-product-card [product]="product" />
+            <app-product-card [product]="product" (cartEvent)="onAddCart($event)" />
           } @empty {
             <p>Nessun prodotto da mostrare</p>
           }

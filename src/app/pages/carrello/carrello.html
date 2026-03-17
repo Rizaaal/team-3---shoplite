@@ -39,28 +39,31 @@
       </button>
     </div>
   } @else {
+    <h1>Carrello</h1>
     <div class="cart-list">
       @for (item of cartItems(); track item.id) {
         <div class="cart-item">
-          <img [src]="item.image" [alt]="item.nome" class="cart-item-image" />
+          <div class="info-container">
+            <img [src]="item.image" [alt]="item.nome" class="cart-item-image" />
 
-          <div class="cart-item-info">
-            <span class="cart-item-name">{{ item.nome }}</span>
-            <span class="cart-item-category">{{ item.categoria }}</span>
-            <span class="cart-item-price">€ {{ item.prezzo | number: '1.2-2' }}</span>
-          </div>
+            <div class="cart-item-info">
+              <span class="cart-item-name">{{ item.nome }}</span>
+              <span class="cart-item-category">{{ item.categoria }}</span>
+              <span class="cart-item-price">€ {{ item.prezzo | number: '1.2-2' }}</span>
+            </div>
 
-          <div class="cart-item-qty">
-            <button class="btn-qty" (click)="decreaseQty(item)" [disabled]="item.qty <= 1">
-              −
-            </button>
-            <span class="qty-value">{{ item.qty }}</span>
-            <button class="btn-qty" (click)="increaseQty(item)">+</button>
-          </div>
+            <div class="cart-item-qty">
+              <button class="btn-qty" (click)="decreaseQty(item)" [disabled]="item.stock <= 1">
+                −
+              </button>
+              <span class="qty-value">{{ item.stock }}</span>
+              <button class="btn-qty" (click)="increaseQty(item)">+</button>
+            </div>
 
-          <div class="cart-item-subtotal">
-            <span class="label">Subtotale</span>
-            <span class="value">€ {{ item.qty * item.prezzo | number: '1.2-2' }}</span>
+            <div class="cart-item-subtotal">
+              <span class="label">Subtotale</span>
+              <span class="value">€ {{ item.stock * item.prezzo | number: '1.2-2' }}</span>
+            </div>
           </div>
 
           <button class="btn-remove" (click)="removeItem(item.id)">
@@ -88,7 +91,9 @@
       <div class="cart-footer">
         <div class="cart-total">
           <span>Totale</span>
-          <span>€ {{ total() | number: '1.2-2' }}</span>
+          <span
+            ><h3>€ {{ total() | number: '1.2-2' }}</h3></span
+          >
         </div>
         <button class="btn-primary btn-checkout" (click)="goToCheckout()">
           Procedi all'acquisto

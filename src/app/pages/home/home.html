@@ -3,7 +3,7 @@
     <div id="carouselExampleRide" class="carousel slide" data-bs-ride="true">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="https://i.postimg.cc/pLzGdjK8/jpeg-2.png" class="d-block w-100" alt="..." />
+          <img src="hero1.jpg" class="d-block w-100" alt="..." />
         </div>
         <div class="carousel-item">
           <img src="https://i.postimg.cc/pLzGdjK8/jpeg-2.png" class="d-block w-100" alt="..." />
@@ -133,11 +133,10 @@
         </div>
       </div>
     </section>
-
     <section class="product-card-section">
       <div class="product-card-header">
         <h2>Prodotti in Evidenza</h2>
-        <p>
+        <p routerLink="/products" style="cursor: pointer">
           Vedi tutti
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -150,8 +149,6 @@
             stroke-linecap="round"
             stroke-linejoin="round"
             class="lucide lucide-arrow-right h-5 w-5"
-            data-fg-dag64="32.76:32.10055:/src/app/pages/Home.tsx:97:13:4734:34:e:ArrowRight::::::s5N"
-            data-fgid-dag64=":r8e:"
           >
             <path d="M5 12h14"></path>
             <path d="m12 5 7 7-7 7"></path>
@@ -165,7 +162,7 @@
         } @else if (productsService.products.error()) {
           <p>{{ productsService.products.error() }}</p>
         } @else {
-          @for (product of products(); track $index) {
+          @for (product of featuredProducts(); track $index) {
             <app-product-card [product]="product" />
           } @empty {
             <p>Nessun prodotto da mostrare</p>

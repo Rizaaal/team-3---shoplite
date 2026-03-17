@@ -14,7 +14,6 @@ export class AuthService {
       if (!params) return null;
 
       const localStorageUser = localStorage.getItem('user');
-      console.log(localStorageUser);
 
       // if user is signed in, return the user
       if (localStorageUser) {
@@ -43,6 +42,10 @@ export class AuthService {
   logout() {
     this.credentials.set(null);
     localStorage.removeItem(localStorageKey);
+  }
+
+  isLogged() {
+    return !!localStorage.getItem(localStorageKey);
   }
 }
 

@@ -10,8 +10,10 @@ article {
 button {
   display: flex;
   align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.8rem 0 0.8rem 0;
   background-color: rgb(27, 221, 98);
-  padding: 0.4rem 4.2rem 0.4rem 4.2rem;
   border-radius: 0.5rem;
   border-width: 0px;
   color: white;
@@ -43,13 +45,11 @@ span {
 }
 
 .image {
-  background-image: url(../../../assets/card-image.jpeg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  object-fit: cover;
   min-height: 20rem;
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
+  max-width: 100%;
 }
 
 article .description {
@@ -64,6 +64,17 @@ article .description {
 .title {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.title h3 {
+ margin: 0;
+}
+
+.title p {
+  line-height: 1;
+  min-width: 30%;
+  text-align: end;
 }
 
 .price {

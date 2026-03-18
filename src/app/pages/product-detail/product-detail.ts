@@ -1,20 +1,22 @@
-import { Component, computed, inject, OnInit } from '@angular/core';
+import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router'; // Aggiungi Router
 import { ProductCard } from '../../components/shared/product-card/product-card'; // Importa la tua card
 import { ProductsService } from '../../services/products.service';
 import { CartService } from '../../services/cart-service';
+import { StarIcon } from '../../components/icons/star/star';
 
 @Component({
   selector: 'app-product-detail',
   standalone: true,
-  imports: [CommonModule, ProductCard], // Aggiungi ProductCard qui
+  imports: [CommonModule, ProductCard, StarIcon], // Aggiungi ProductCard qui
   templateUrl: './product-detail.html',
   styleUrl: './product-detail.css',
 })
 export class ProductDetail implements OnInit {
   productsService = inject(ProductsService);
   cartService = inject(CartService);
+  addedToCart = signal<boolean>(false);
 
   product: any;
   suggestedProducts: any[] = []; // Array per le card in basso
@@ -55,7 +57,13 @@ export class ProductDetail implements OnInit {
   }
 
   addToCart() {
-    console.log('Prodotto aggiunto:', this.product.name);
+    // cambia stile bottone quando si aggiunge al carrello
+    this.addedToCart.set(true);
+
+    setTimeout(() => {
+      this.addedToCart.set(false);
+    }, 1500);
+
     this.cartService.add(this.product);
   }
 }

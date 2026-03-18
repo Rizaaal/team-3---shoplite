@@ -10,6 +10,7 @@ import { CartService } from '../../../services/cart-service';
   styleUrl: './product-card.css',
 })
 export class ProductCard {
+  private cartService = inject(CartService);
   cartEvent = output<Product>();
 
   product = input<Product>({
@@ -22,8 +23,21 @@ export class ProductCard {
     image: 'placeholder.jpg',
   });
 
-  addToCart() {
-    this.cartEvent.emit(this.product());
+  addToCart(event?: Event) {
+    if (event) {
+      event.stopPropagation(); // Ferma la navigazione al dettaglio
+    }
+
+    const currentItem = this.product();
+    const existingItem = this.cartService.items().find(i => i.id === currentItem.id);
+    
+    if (existingItem) {
+      this.cartService.updateQty(currentItem.id, existingItem.stock + 1);
+    } else {
+      this.cartService.items.set([...this.cartService.items(), { ...currentItem, stock: 1 }]);
+    }
+    
+    this.cartEvent.emit(currentItem);
   }
 }
 

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Product } from '../components/shared/product-card/product-card';
 import { baseApiUrl, localStorageKey } from '../constants';
 import { firstValueFrom } from 'rxjs';
+import { FormProduct } from '../components/admin/create-prodotto-page/create-prodotto-page';
 
 interface UploadResponse {
   success?: boolean;
@@ -66,7 +67,7 @@ export class ProductsService {
     return { url, public_id };
   }
 
-  async createProduct(payload: Product): Promise<Product> {
+  async createProduct(payload: FormProduct): Promise<Product> {
     const sessionRaw = localStorage.getItem(localStorageKey);
     const token = sessionRaw ? JSON.parse(sessionRaw).token : null;
 

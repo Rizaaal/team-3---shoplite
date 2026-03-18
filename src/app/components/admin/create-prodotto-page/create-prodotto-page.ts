@@ -31,7 +31,7 @@ export class CreateProdottoPageComponent implements OnInit {
     }
   }
 
-  async handleCreateProduct(event: { formData: Product; file: File | null }) {
+  async handleCreateProduct(event: { formData: FormProduct; file: File | null }) {
     if (!event.file) {
       this.error.set("Seleziona un'immagine");
       return;
@@ -43,7 +43,7 @@ export class CreateProdottoPageComponent implements OnInit {
     try {
       const upload = await this.service.uploadProductImage(event.file);
 
-      const payload: Product = {
+      const payload: FormProduct = {
         ...event.formData,
         image: upload.url,
       };
@@ -64,3 +64,5 @@ export class CreateProdottoPageComponent implements OnInit {
     this.location.back();
   }
 }
+
+export type FormProduct = Omit<Product, 'id'>;

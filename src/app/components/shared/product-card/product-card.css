@@ -19,10 +19,7 @@ button {
   border-width: 0px;
   color: white;
   font-weight: 600;
-}
-
-svg {
-  margin-right: 0.5rem;
+  gap: 5px;
 }
 
 button svg {
@@ -39,11 +36,6 @@ h3 {
   font-size: 16px;
   font-weight: 600;
   margin-top: 0.5rem;
-}
-
-button svg {
-  width: 1.2rem;
-  margin-right: 0.5rem;
 }
 
 span {
@@ -143,5 +135,10 @@ button:disabled {
 
 .text-danger {
   color: #DC2626;
+}
+
+.added {
+  background-color: rgb(190, 190, 0);
+  transition: background-color .4s;
 }
 

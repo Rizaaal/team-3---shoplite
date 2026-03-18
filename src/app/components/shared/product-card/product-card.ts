@@ -1,17 +1,19 @@
-import { Component, inject, input, output } from '@angular/core';
+import { Component, inject, input, output, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CartService } from '../../../services/cart-service';
+import { StarIcon } from '../../icons/star/star';
 
 @Component({
   selector: 'app-product-card',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, StarIcon],
   templateUrl: './product-card.html',
   styleUrl: './product-card.css',
 })
 export class ProductCard {
   private cartService = inject(CartService);
   cartEvent = output<Product>();
+  addedToCart = signal<boolean>(false);
 
   product = input<Product>({
     id: 1,
@@ -27,6 +29,13 @@ export class ProductCard {
     if (event) {
       event.stopPropagation(); // Ferma la navigazione al dettaglio
     }
+
+    // cambia stile bottone quando si aggiunge al carrello
+    this.addedToCart.set(true);
+
+    setTimeout(() => {
+      this.addedToCart.set(false);
+    }, 1500);
 
     const currentItem = this.product();
     const existingItem = this.cartService.items().find((i) => i.id === currentItem.id);

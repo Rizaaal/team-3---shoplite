@@ -42,8 +42,17 @@
         </div>
 
         <div class="purchase-zone">
-          <button class="add-btn" [disabled]="!product.stock" (click)="addToCart()">
-            Aggiungi al Carrello
+          <button
+            class="add-btn"
+            [disabled]="!product.stock"
+            (click)="addToCart()"
+            [class.added]="addedToCart()"
+          >
+            @if (addedToCart()) {
+              <app-star /> Aggiunto al carrello!
+            } @else {
+              Aggiungi al carrello
+            }
           </button>
         </div>
       </div>

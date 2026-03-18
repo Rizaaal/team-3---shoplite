@@ -136,6 +136,11 @@ h1 {
   margin-bottom: 30px;
 }
 
+.added {
+  background-color: rgb(190, 190, 0);
+  transition: background-color .4s;
+}
+
 /* Responsive */
 @media (max-width: 992px) {
   .main-layout { grid-template-columns: 1fr; }

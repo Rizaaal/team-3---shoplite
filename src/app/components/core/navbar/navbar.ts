@@ -11,6 +11,7 @@ import { AuthService } from '../../../services/auth-service';
 export class Navbar {
   authService = inject(AuthService);
   isLogged = signal<boolean>(this.authService.isLogged());
+  isAdmin = signal<boolean>(this.authService.isAdmin());
 
   logout() {
     this.authService.logout();

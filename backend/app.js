@@ -18,6 +18,8 @@ app.use(
   }),
 );
 
+app.use('/webhooks', stripeWebhookRoutes);
+
 app.use(express.json());
 
 app.get('/api', (req, res) => {

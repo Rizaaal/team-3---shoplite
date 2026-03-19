@@ -5,54 +5,26 @@
   <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
     <div class="sign-up-container">
       @if (error()) {
-        <p style="color: red">{{ error() }}</p>
+      <p style="color: red">{{ error() }}</p>
       }
 
       <label class="first-name">Nome</label>
-      <input
-        formControlName="firstName"
-        type="text"
-        placeholder="First Name"
-        autocomplete="given-name"
-      />
+      <input formControlName="firstName" type="text" placeholder="First Name" autocomplete="given-name" />
 
       <label class="last-name margin">Cognome</label>
-      <input
-        formControlName="lastName"
-        type="text"
-        placeholder="Last Name"
-        autocomplete="family-name"
-      />
+      <input formControlName="lastName" type="text" placeholder="Last Name" autocomplete="family-name" />
 
       <label class="email margin">Email</label>
-      <input
-        formControlName="email"
-        type="email"
-        placeholder="example@email.com"
-        autocomplete="email"
-      />
+      <input formControlName="email" type="email" placeholder="example@email.com" autocomplete="email" />
 
       <label class="password margin">Password</label>
-      <input
-        formControlName="password"
-        type="password"
-        placeholder="••••••••"
-        autocomplete="new-password"
-      />
+      <input formControlName="password" type="password" placeholder="Mettere almeno 6 carateri "
+        autocomplete="new-password" />
 
       <label class="confirm-password margin">Conferma Password</label>
-      <input
-        formControlName="confirmPassword"
-        type="password"
-        placeholder="••••••••"
-        autocomplete="new-password"
-      />
+      <input formControlName="confirmPassword" type="password" placeholder="••••••••" autocomplete="new-password" />
 
-      <button
-        type="submit"
-        [disabled]="registerForm.invalid || loading()"
-        [class.valid-form]="registerForm.valid"
-      >
+      <button type="submit" [disabled]="registerForm.invalid || loading()" [class.valid-form]="registerForm.valid">
         {{ loading() ? 'Creazione...' : 'Crea Account' }}
       </button>
 

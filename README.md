@@ -95,7 +95,7 @@ A questo punto avviare il dev server con `npm run dev`.
 
 ## Utilizzo
 All'avvio viene generato un utente admin:
-- email: vedi@mail.com
+- email: verdi@mail.com
 - password: 1234
 
 Questo si può usare per modificare/eliminare/creare prodotti dalla dashboard admin.

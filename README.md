@@ -1,7 +1,7 @@
 # Shoplite
 
 ## Membri
-- Damilola Abiola Wiwoloku - fullstack - 
+- Damilola Abiola Wiwoloku - fullstack - damiwiwo@gmail.com
 - Michele Papa - fullstack - 
 - Anass Jouttane - fullstack - jouttane.anass@gmail.com
 - Gabriele Di Grazia - fullstack - gabrieldigrazia@protonmail.com

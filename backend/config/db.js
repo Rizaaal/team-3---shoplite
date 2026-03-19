@@ -34,7 +34,7 @@ async function connectDB() {
     console.log('MySQL connesso');
     connection.release();
 
-    await initDB('../shoplite-2.sql');
+    await initDB('../shoplite.sql');
     console.log('Init DB completata');
   } catch (err) {
     console.error('Errore connessione o init DB:', err);

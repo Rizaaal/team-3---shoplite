@@ -38,17 +38,6 @@ export class ProductsService {
     },
   });
 
-  async getProducts(): Promise<Product[]> {
-    const response = await fetch(`${baseApiUrl}/prodotti`);
-
-    if (!response.ok) {
-      throw new Error('Non è stato possibile caricare i prodotti.');
-    }
-
-    const result = await response.json();
-    return Array.isArray(result?.data) ? result.data : result;
-  }
-
   async uploadProductImage(file: File): Promise<{ url: string; public_id?: string }> {
     const formData = new FormData();
     formData.append('file', file);
@@ -64,6 +53,7 @@ export class ProductsService {
       throw new Error("L'upload dell'immagine non ha restituito un URL valido.");
     }
 
+    this.products.reload();
     return { url, public_id };
   }
 
@@ -93,6 +83,7 @@ export class ProductsService {
     const result = await response.json();
     console.log('CREATE PRODUCT RESPONSE:', result);
 
+    this.products.reload();
     return result?.data ?? result;
   }
 }

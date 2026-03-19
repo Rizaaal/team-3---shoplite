@@ -24,7 +24,12 @@ export class CreateProdottoPageComponent implements OnInit {
 
   async ngOnInit() {
     try {
-      this.products.set(await this.service.getProducts());
+      const products = await this.service.products.value();
+      if (products) {
+        this.products.set(products);
+      } else {
+        throw new Error();
+      }
     } catch (error) {
       console.error(error);
       this.error.set('Errore caricamento prodotti');

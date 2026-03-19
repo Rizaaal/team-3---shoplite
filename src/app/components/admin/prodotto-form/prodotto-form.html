@@ -1,20 +1,77 @@
-<form [formGroup]="form" (ngSubmit)="submit()" class="space-y-4">
-  <input formControlName="nome" placeholder="Nome prodotto" />
+<form [formGroup]="form" (ngSubmit)="submit()" class="admin-form">
 
-  <textarea formControlName="descrizione" placeholder="Descrizione"></textarea>
 
-  <input type="number" formControlName="prezzo" placeholder="Prezzo" />
 
-  <input type="number" formControlName="stock" placeholder="Stock" />
+  <div class="form-group full-width">
 
-  <select formControlName="categoria">
-    <option value="">Categoria</option>
-    <option *ngFor="let c of categories" [value]="c">{{ c }}</option>
-  </select>
+    <label>Nome Prodotto</label>
 
-  <input type="file" (change)="onFileChange($event)" />
+    <input formControlName="nome" placeholder="Es: NVIDIA RTX 4090" />
 
-  <button [disabled]="loading">
-    {{ loading ? 'Loading...' : 'Crea prodotto' }}
+  </div>
+
+
+
+  <div class="form-group full-width">
+
+    <label>Descrizione</label>
+
+    <textarea formControlName="descrizione" placeholder="Descrivi le caratteristiche tecniche..." rows="3"></textarea>
+
+  </div>
+
+
+
+  <div class="form-group">
+
+    <label>Prezzo (€)</label>
+
+    <input type="number" formControlName="prezzo" placeholder="0.00" min="0" step="0.01" />
+
+  </div>
+
+
+
+  <div class="form-group">
+
+    <label>Stock (Pezzi)</label>
+
+    <input type="number" formControlName="stock" placeholder="Disponibilità" min="0" />
+
+  </div>
+
+
+
+  <div class="form-group">
+
+    <label>Categoria</label>
+
+    <select formControlName="categoria">
+
+      <option value="">Seleziona...</option>
+
+      <option *ngFor="let c of categories" [value]="c">{{ c }}</option>
+
+    </select>
+
+  </div>
+
+
+
+  <div class="form-group">
+
+    <label>Immagine Prodotto</label>
+
+    <input type="file" (change)="onFileChange($event)" class="file-input" />
+
+  </div>
+
+
+
+  <button type="submit" [disabled]="loading" class="btn-submit">
+
+    {{ loading ? 'Salvataggio...' : 'Crea prodotto' }}
+
   </button>
+
 </form>

@@ -1,5 +1,7 @@
+
+
 import { CommonModule, Location } from '@angular/common';
-import { Component, OnInit, inject, signal } from '@angular/core';
+import { Component, OnInit, inject, signal, ViewChild } from '@angular/core';
 import { Product } from '../../shared/product-card/product-card';
 import { ProductsService } from '../../../services/products.service';
 import { ProdottoFormComponent } from '../prodotto-form/prodotto-form';
@@ -16,6 +18,9 @@ import { ProdottiListComponent } from '../prodotti-list/prodotti-list';
 export class CreateProdottoPageComponent implements OnInit {
   private service = inject(ProductsService);
   private location = inject(Location);
+
+  // Riferimento al componente figlio (il form)
+  @ViewChild(ProdottoFormComponent) formComponent!: ProdottoFormComponent;
 
   product = signal<Product | null>(null);
   products = signal<Product[]>([]);
@@ -41,8 +46,10 @@ export class CreateProdottoPageComponent implements OnInit {
     this.error.set('');
 
     try {
+      // 1. Upload Immagine
       const upload = await this.service.uploadProductImage(event.file);
 
+      // 2. Creazione Prodotto
       const payload: FormProduct = {
         ...event.formData,
         image: upload.url,
@@ -50,11 +57,18 @@ export class CreateProdottoPageComponent implements OnInit {
 
       const created = await this.service.createProduct(payload);
 
+      // 3. Aggiorna interfaccia (Anteprima Live e Inventario)
       this.product.set(created);
       this.products.set([created, ...this.products()]);
-    } catch (error) {
+
+      // --- 4. RESET AUTOMATICO DEL FORM ---
+      this.formComponent.resetForm();
+      
+      console.log('Prodotto creato e form resettato!');
+
+    } catch (error: any) {
       console.error(error);
-      this.error.set('Errore creazione prodotto');
+      this.error.set(error.message || 'Errore creazione prodotto');
     } finally {
       this.loading.set(false);
     }

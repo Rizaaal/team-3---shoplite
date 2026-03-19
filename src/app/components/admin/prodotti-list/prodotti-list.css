@@ -1,0 +1,129 @@
+/* --- CONTENITORE LISTA (STILE CARRELLO) --- */
+.inventory-list {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+  }
+  
+  /* --- SINGOLO ARTICOLO --- */
+  .product-admin-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid #f1f5f9;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .product-admin-item:hover {
+    background-color: #f8fafc;
+    transform: translateX(4px); /* Leggero scivolamento al passaggio del mouse */
+  }
+  
+  /* --- SEZIONE SINISTRA: IMMAGINE + INFO --- */
+  .product-admin-main {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex: 1;
+  }
+  
+  .img-wrapper {
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    background: #f8fafc;
+  }
+  
+  .product-admin-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* --- TESTI --- */
+  .product-admin-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .category-badge {
+    display: inline-block;
+    width: fit-content;
+    font-size: 0.65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #2563eb;
+    background: #eff6ff;
+    padding: 2px 8px;
+    border-radius: 6px;
+  }
+  
+  .product-admin-info h4 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1e293b;
+  }
+  
+  .description-truncate {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #64748b;
+    /* Tronca il testo dopo una riga */
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  /* --- SEZIONE DESTRA: STATISTICHE (PREZZO/STOCK) --- */
+  .product-admin-stats {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem; /* Spazio tra Prezzo e Stock */
+    margin-left: 1.5rem;
+  }
+  
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    min-width: 80px;
+  }
+  
+  .stat-item .label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #94a3b8;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+  
+  .stat-item .value {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #0f172a;
+  }
+  
+  /* Colore specifico per lo stock basso (opzionale) */
+  .stat-item:last-child .value {
+    color: #475569;
+  }
+  
+  /* --- STATO VUOTO --- */
+  .empty-state {
+    padding: 3rem;
+    text-align: center;
+    color: #94a3b8;
+    font-style: italic;
+    border: 2px dashed #e2e8f0;
+    margin: 1.5rem;
+    border-radius: 12px;
+  }
+  

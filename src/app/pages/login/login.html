@@ -16,7 +16,7 @@
       </div>
 
       <button type="submit" [disabled]="loginForm.invalid" [class.valid-form]="loginForm.valid">
-        @if (authService.user.isLoading()) {
+        @if (authService.cliente.isLoading()) {
           ...caricamento
         } @else {
           Accedi
@@ -28,7 +28,7 @@
       <p>Non hai un account? <a class="sign-up" routerLink="/sign-up"> Registrati </a></p>
     </div>
 
-    @if (authService.user.error()) {
+    @if (authService.cliente.error()) {
       <p class="error">Credenziali invalide. Riprova!</p>
     }
   </form>

@@ -1,6 +1,12 @@
+app-chi-siamo {
+  display: block;
+  margin: 2rem;
+}
+
 .info {
   border-top: 1px solid rgb(229, 231, 235);
   background-color: #F8FAFC;
+  margin: 2rem;
 }
 
 /* section: service */
@@ -22,6 +28,7 @@ p {
   max-width: 1400px;
   margin: auto;
   padding: 2rem 0 2rem 0;
+  gap: 10px;
 }
 
 .card-container {
@@ -88,5 +95,12 @@ app-product-card:hover {
 .carousel img {
   width: 100%;
   height: 350px;
-  object-fit: contain;
+  object-fit: cover;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(0, 0, 0, 0.5);  /* Sfondo */
+  width: 20px;
+  height: 30px;
 }

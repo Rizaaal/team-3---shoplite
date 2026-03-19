@@ -3,11 +3,32 @@
 ## Membri
 - Damilola Abiola Wiwoloku - fullstack - 
 - Michele Papa - fullstack - 
-- Anass - fullstack -
+- Anass Jouttane - fullstack - jouttane.anass@gmail.com
 - Gabriele Di Grazia - fullstack - gabrieldigrazia@protonmail.com
 
 ## Descrizione
-Semplice e-commerce di articoli di informatica e di tecnologia. Contiene una pagina per filtrare e cercare gli articoli per nome, range di prezzo e categoria. qualsiasi visitatore può comprare gli articoli inserendo i dati della carta di credito, con il pagamento gestito da stripe. Si può anche eseguire la registrazione al sito, in modo da poter salvare le proprie informazioni di pagamento. Gli admin possono gestire gli articoli del sito dal pannello admin, creando e modificando o rimuovendo gli articoli esistenti con un interfaccia facile da utilizzare. Le immagini sono hostate con Cloudnary.
+Semplice e-commerce di articoli di informatica e di tecnologia. Contiene una pagina per filtrare e cercare gli articoli per nome, range di prezzo e categoria. qualsiasi visitatore può comprare gli articoli inserendo i dati della carta di credito, con il pagamento gestito da stripe. Si può anche eseguire la registrazione al sito, in modo da poter salvare le proprie informazioni di pagamento. Gli admin possono gestire gli articoli del sito dal pannello admin, creando e modificando o rimuovendo gli articoli esistenti con un interfaccia facile da utilizzare. Le immagini sono hostate con Cloudinary.
+
+## Dipendenze utilizzate
+### FE
+- "@stripe/stripe-js"
+- "bootstrap"
+- "bcrypt" -> per il login
+- "jwt-decode" -> per il login
+- "rxjs"
+
+### BE
+- "bcrypt"
+- "body-parse"
+- "body-parser"
+- "cloudinary"
+- "cors"
+- "dotenv"
+- "jsonwebtoken"
+- "multer"
+- "multer-storage-cloudinary"
+- "nodemon"
+- "stripe"
 
 ## Istruzioni per l'avvio del progetto
 
@@ -35,12 +56,19 @@ ng build
 ### Backend
 Il backend si trova all'interno della cartella di progetto in /backend.
 
- ```bash
+```bash
 cd backend
 ```
-Quindi installare i pacchetti
+Quindi installare i pacchetti:
+
+```bash
+npm i
+```
 
 ### Inizializzare il DB
+avviare un server di sql manualmente, dopodiché
+Il DB `shoplite` verrà generato all'avvio del server, vuoto.
+
 Se il DB non viene inizializzato all'avvio del server,
 avviare un server di sql manualmente, e quindi creare il database `shoplite`.
 Quindi importare il database dal file `shoplite.sql`.
@@ -66,10 +94,8 @@ CLOUDINARY_CLOUD_NAME
 A questo punto avviare il dev server con `npm run dev`.
 
 ## Utilizzo
-utente admin:
-email: verdi@mail.com
-password: 1234
+All'avvio viene generato un utente admin:
+- email: vedi@mail.com
+- password: 1234
 
-Utente normale:
-email: giggio@mail.com
-password: 123456
+Questo si può usare per modificare/eliminare/creare prodotti dalla dashboard admin.

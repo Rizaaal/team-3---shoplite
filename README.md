@@ -1,10 +1,10 @@
 # Shoplite
 
 ## Membri
-Damilola Abiola Wiwoloku - fullstack - 
-Michele Papa - fullstack - 
-Anass - fullstack -
-Gabriele Di Grazia - fullstack - gabrieldigrazia@protonmail.com
+- Damilola Abiola Wiwoloku - fullstack - 
+- Michele Papa - fullstack - 
+- Anass - fullstack -
+- Gabriele Di Grazia - fullstack - gabrieldigrazia@protonmail.com
 
 ## Descrizione
 Semplice e-commerce di articoli di informatica e di tecnologia. Contiene una pagina per filtrare e cercare gli articoli per nome, range di prezzo e categoria. qualsiasi visitatore può comprare gli articoli inserendo i dati della carta di credito, con il pagamento gestito da stripe. Si può anche eseguire la registrazione al sito, in modo da poter salvare le proprie informazioni di pagamento. Gli admin possono gestire gli articoli del sito dal pannello admin, creando e modificando o rimuovendo gli articoli esistenti con un interfaccia facile da utilizzare. Le immagini sono hostate con Cloudnary.

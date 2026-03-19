@@ -37,6 +37,10 @@ button {
   border-radius: 0.7rem;
 }
 
+button.invalid-form {
+  background-color: rgb(102, 102, 102);
+}
+
 button.valid-form:hover {
   background-color: color-mix(in srgb, rgb(34, 197, 94) 90%, transparent);
 }

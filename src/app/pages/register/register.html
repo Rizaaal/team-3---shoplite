@@ -38,6 +38,7 @@
         type="password"
         placeholder="••••••••"
         autocomplete="new-password"
+        placeholder="Inserire una password di 6 caratteri"
       />
 
       <label class="confirm-password margin">Conferma Password</label>
@@ -46,12 +47,13 @@
         type="password"
         placeholder="••••••••"
         autocomplete="new-password"
+        placeholder="Inserire una password di 6 caratteri"
       />
 
       <button
         type="submit"
         [disabled]="registerForm.invalid || loading()"
-        [class.valid-form]="registerForm.valid"
+        [class.invalid-form]="registerForm.invalid"
       >
         {{ loading() ? 'Creazione...' : 'Crea Account' }}
       </button>

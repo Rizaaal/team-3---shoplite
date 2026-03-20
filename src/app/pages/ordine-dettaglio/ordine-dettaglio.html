@@ -16,10 +16,6 @@
           <h1>Ordine #{{ order.id }}</h1>
           <p class="order-meta">Data: {{ order.dataOrdine | date: 'dd/MM/yyyy HH:mm' }}</p>
         </div>
-        <div class="status-box">
-          <span class="status-pill">{{ order.stato }}</span>
-          <span class="payment-pill">{{ order.paymentStatus }}</span>
-        </div>
       </div>
 
       <div class="order-grid">

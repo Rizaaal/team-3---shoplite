@@ -2,7 +2,8 @@
 
 ## Membri
 - Damilola Abiola Wiwoloku - fullstack - damiwiwo@gmail.com
-- Michele Papa - fullstack - 
+- Michele Papa - fullstack -
+michele.papa@gmail.com
 - Anass Jouttane - fullstack - jouttane.anass@gmail.com
 - Gabriele Di Grazia - fullstack - gabrieldigrazia@protonmail.com
 

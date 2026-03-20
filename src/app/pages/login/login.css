@@ -3,15 +3,41 @@ section {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  min-height: 100dvh;
   background-color: #F8FAFC;
-  font-size: 14px;
+  padding: 2rem;
+  width: 100%;
 }
 
-input {
+form {
+  display: flex;
+  justify-content: center;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin-bottom: 0.5rem;
+}
+
+p {
+  margin: 0 0 2rem 0;
+  font-size: 16px;
+  text-align: center;
+  color: oklab(0.207682 -0.00294792 -0.0397151 / 0.6);
+}
+
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  width: 30rem;
+  max-width: 90%;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1);
   border-radius: 0.6rem;
-  padding: 0.5rem 1rem 0.5rem 1em;
   border: 1px solid oklch(0.928 0.006 264.531);
+  background-color: #fff;
 }
 
 label {
@@ -20,37 +46,16 @@ label {
   font-weight: 500;
 }
 
-button {
-  margin-top: 1.5rem;
-  background-color: #ccc;
-  color: white;
-  font-weight: 500;
+input {
+  width: 100%;
+  border-radius: 0.6rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid oklch(0.928 0.006 264.531);
   font-size: 16px;
-  padding: 0.7rem 0 0.7rem;
-  border-width: 0;
-  border-radius: 0.7rem;
+  margin-bottom: 1rem;
 }
 
-button.valid-form {
-  background-color: rgb(37, 99, 235);
-}
-
-p {
-  margin-top: 1.5rem;
-  text-align: center;
-  color: oklab(0.207682 -0.00294792 -0.0397151 / 0.6);
-}
-
-p.title {
-  margin: 0 0 2rem 0;
-  font-size: 16px;
-}
-
-button.valid-form:hover {
-  background-color: rgb(6, 182, 212);
-}
-
-div.checkbox-line {
+.checkbox-line {
   display: flex;
   justify-content: space-between;
   margin-top: 1.5rem;
@@ -66,20 +71,38 @@ div.checkbox-line .label {
   margin-left: 0.4rem;
 }
 
-.login-container {
-  display: flex;
-  flex-direction: column;
-  padding: 2rem;
-  box-shadow:
-    0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -4px rgba(0, 0, 0, 0.1);
-  border-radius: 0.6rem;
-  border: 1px solid oklch(0.928 0.006 264.531);
-  width: 30rem;
+.sign-up {
+  color: rgb(37, 99, 235);
+  cursor: pointer;
 }
 
-.password {
-  margin-top: 1rem;
+.sign-up:hover {
+  color: rgb(6, 182, 212);
+}
+
+.account {
+  font-size: 14px;
+}
+
+/* BOTTONE */
+button {
+  margin-top: 1.5rem;
+  background-color: #ccc;
+  color: white;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 0.7rem 0;
+  border-width: 0;
+  border-radius: 0.7rem;
+  transition: background-color 0.3s ease;
+}
+
+button.valid-form {
+  background-color: rgb(37, 99, 235);
+}
+
+button.valid-form:hover {
+  background-color: rgb(6, 182, 212);
 }
 
 .line-with-text {
@@ -98,15 +121,6 @@ div.checkbox-line .label {
   margin: 0 10px;
 }
 
-.sign-up {
-  color: rgb(37, 99, 235);
-}
-
-.sign-up:hover {
-  cursor: pointer;
-  color: rgb(6, 182, 212);
-}
-
 .home {
   margin-top: 1rem;
   text-decoration: none;
@@ -122,5 +136,32 @@ div.checkbox-line .label {
   color: rgb(112, 19, 19);
   padding: 1rem;
   border-radius: 0.7rem;
+  width: 100%;
 }
 
+/* RESPONSIVE MOBILE */
+@media (max-width: 480px) {
+  .login-container {
+    padding: 1.5rem;
+    width: 100%;
+    /* prende tutta la larghezza disponibile */
+    max-width: 100%;
+    /* niente limiti su mobile */
+  }
+
+  .checkbox-line {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+
+  button {
+    font-size: 15px;
+    padding: 0.9rem 0;
+  }
+
+  input {
+    font-size: 15px;
+    padding: 0.6rem 0.8rem;
+  }
+}

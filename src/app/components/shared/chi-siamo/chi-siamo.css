@@ -3,7 +3,7 @@
   grid-template-columns: repeat(2, 1fr);
   grid-auto-rows: minmax(100px, auto);
   align-items: center;
-  padding: 4rem 0 4rem 0;
+  padding: 1rem 0 1rem 0;
   max-width: 1400px;
   margin: auto;
 }
@@ -25,11 +25,8 @@ p {
 
 .statistic {
   display: flex;
-  margin-top: 3rem;
-}
-
-.statistic>div {
-  margin-right: 6rem;
+  text-align: center;
+  gap: 3rem;
 }
 
 .statistic .number {
@@ -44,4 +41,31 @@ p {
 
 .description {
   padding-right: 3rem;
+}
+
+@media (max-width: 1200px) {
+  .chi-siamo-section {
+    grid-template-columns: 1fr;
+  }
+
+  img {
+    grid-row: 1 / 2;
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  .statistic {
+    justify-content: center;
+  }
+
+  .description {
+    padding: 0;
+  }
 }

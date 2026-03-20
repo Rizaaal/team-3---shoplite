@@ -4,7 +4,7 @@ import { loadStripe, Stripe } from '@stripe/stripe-js';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth-service';
 import { environment } from '../../environments/environment';
-import { Product } from '../components/shared/product-card/product-card';
+import { CartItem } from './cart-service';
 
 export type CheckoutPayload = {
   prodotti: {
@@ -84,11 +84,11 @@ export class PaymentService {
     });
   }
 
-  buildPayload(cart: Product[], form: any, isLogged: boolean): CheckoutPayload {
+  buildPayload(cart: CartItem[], form: any, isLogged: boolean): CheckoutPayload {
     return {
       prodotti: cart.map((p) => ({
         idProdotto: p.id,
-        quantita: p.stock,
+        quantita: p.quantity,
       })),
       indirizzoSpedizione: form.indirizzoSpedizione,
       postalCode: form.postalCode,
@@ -116,7 +116,7 @@ export class PaymentService {
       headers = headers.set('x-guest-token', guestToken);
     }
 
-    return this.http.get(`${environment.apiUrl}/ordini/${idOrdine}`, {
+    return this.http.get<OrderDetailResponse>(`${environment.apiUrl}/ordini/${idOrdine}`, {
       headers,
     });
   }

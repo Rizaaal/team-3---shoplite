@@ -1,3 +1,4 @@
+/* SEZIONE PRINCIPALE */
 section {
   display: flex;
   flex-direction: column;
@@ -6,18 +7,26 @@ section {
   min-height: 100vh;
   background-color: #f8fafc;
   font-size: 14px;
+  padding: 2rem;
+
 }
 
-input {
-  border-radius: 0.6rem;
-  padding: 0.5rem 1rem 0.5rem 1em;
-  border: 1px solid oklch(0.928 0.006 264.531);
+form {
+  display: flex;
+  justify-content: center;
 }
 
-label {
-  margin-bottom: 0.4rem;
-  font-size: 14px;
-  font-weight: 500;
+
+h2 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin-bottom: 0.5rem;
+}
+
+p.title {
+  margin: 0 0 2rem 0;
+  font-size: 16px;
+  text-align: center;
+  color: oklab(0.207682 -0.00294792 -0.0397151 / 0.6);
 }
 
 p {
@@ -26,15 +35,47 @@ p {
   color: oklab(0.207682 -0.00294792 -0.0397151 / 0.6);
 }
 
+.sign-up-container {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  width: 30rem;
+  max-width: 90%;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  border-radius: 0.6rem;
+  border: 1px solid oklch(0.928 0.006 264.531);
+  background-color: #fff;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+label.margin {
+  margin-top: 1rem;
+}
+
+input {
+  width: 100%;
+  border-radius: 0.6rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid oklch(0.928 0.006 264.531);
+  font-size: 16px;
+  margin-bottom: 1rem;
+}
+
 button {
   margin-top: 1.5rem;
   background-color: rgb(34, 197, 94);
   color: white;
   font-weight: 500;
   font-size: 16px;
-  padding: 0.7rem 0 0.7rem;
+  padding: 0.7rem 0;
   border-width: 0;
   border-radius: 0.7rem;
+  transition: background-color 0.3s ease;
 }
 
 button.invalid-form {
@@ -43,27 +84,6 @@ button.invalid-form {
 
 button.valid-form:hover {
   background-color: color-mix(in srgb, rgb(34, 197, 94) 90%, transparent);
-}
-
-p.title {
-  margin: 0 0 2rem 0;
-  font-size: 16px;
-}
-
-.sign-up-container {
-  display: flex;
-  flex-direction: column;
-  padding: 2rem;
-  box-shadow:
-    0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -4px rgba(0, 0, 0, 0.1);
-  border-radius: 0.6rem;
-  border: 1px solid oklch(0.928 0.006 264.531);
-  width: 30rem;
-}
-
-label.margin {
-  margin-top: 1rem;
 }
 
 .line-with-text {
@@ -84,10 +104,10 @@ label.margin {
 
 .sign-in {
   color: rgb(37, 99, 235);
+  cursor: pointer;
 }
 
 .sign-in:hover {
-  cursor: pointer;
   color: rgb(6, 182, 212);
 }
 
@@ -99,4 +119,22 @@ label.margin {
 
 .home:hover {
   color: rgb(37, 99, 235);
+}
+
+@media (max-width: 480px) {
+  .sign-up-container {
+    padding: 1.5rem;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  input {
+    font-size: 15px;
+    padding: 0.6rem 0.8rem;
+  }
+
+  button {
+    font-size: 15px;
+    padding: 0.9rem 0;
+  }
 }

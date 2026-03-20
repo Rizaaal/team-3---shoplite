@@ -73,3 +73,42 @@ footer .main-container {
 .description svg {
   margin-right: 1rem;
 }
+
+/* --- Aggiungi questo in fondo al tuo file footer.css --- */
+
+@media (max-width: 768px) {
+  footer .flex-container {
+    flex-direction: column; 
+    padding: 2rem 1.5rem;
+    text-align: center; 
+  }
+
+  .description, .link, .service, .contact {
+    width: 100%;
+    margin-bottom: 2rem; 
+  }
+
+  .logo {
+    justify-content: center;
+  }
+
+  .social {
+    display: flex;
+    justify-content: center; 
+    gap: 1.5rem;
+  }
+
+  .contact li {
+    justify-content: center; 
+  }
+
+  .description p {
+    max-width: 300px;
+    margin: 0 auto 1rem auto; 
+  }
+
+  .copyright {
+    font-size: 12px;
+    padding: 1.5rem;
+  }
+}

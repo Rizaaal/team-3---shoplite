@@ -105,3 +105,67 @@ app-product-card:hover {
   width: 20px;
   height: 30px;
 }
+/* --- RESPONSIVE DESIGN --- */
+
+/* Tablet e Smartphone grandi (max 1024px) */
+@media (max-width: 1024px) {
+  .service-section {
+    flex-wrap: wrap; /* Permette alle card dei servizi di andare a capo */
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .card-container {
+    width: calc(50% - 20px); /* Due card per riga */
+    min-width: 300px;
+  }
+
+  .card-product-container {
+    justify-content: center; /* Centra i prodotti se avanzano spazi */
+  }
+}
+
+/* Smartphone (max 768px) */
+@media (max-width: 768px) {
+  app-chi-siamo {
+    margin: 1rem; /* Riduce i margini laterali */
+  }
+
+  .carousel img {
+    height: 250px; /* Riduce l'altezza del carosello su mobile */
+  }
+
+  .service-section {
+    padding: 1rem 0;
+  }
+
+  .card-container {
+    width: 100%; /* Una card per riga, occupa tutto lo spazio */
+    max-width: none;
+  }
+
+  .product-card-header h2 {
+    font-size: 1.2rem; /* Testi più piccoli per titoli */
+  }
+
+  .info {
+    padding: 1rem;
+  }
+}
+
+/* Smartphone piccoli (max 480px) */
+@media (max-width: 480px) {
+  .carousel img {
+    height: 180px;
+  }
+
+  .product-card-header {
+    flex-direction: column; /* Titolo e "Vedi tutti" uno sopra l'altro */
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .card-product-container {
+    gap: 15px;
+  }
+}

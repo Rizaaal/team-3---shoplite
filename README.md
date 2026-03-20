@@ -1,17 +1,21 @@
 # Shoplite
 
 ## Membri
+
 - Damilola Abiola Wiwoloku - fullstack - damiwiwo@gmail.com
 - Michele Papa - fullstack -
-michele.papa2005@gmail.com
+  michele.papa2005@gmail.com
 - Anass Jouttane - fullstack - jouttane.anass@gmail.com
 - Gabriele Di Grazia - fullstack - gabrieldigrazia@protonmail.com
 
 ## Descrizione
+
 Semplice e-commerce di articoli di informatica e di tecnologia. Contiene una pagina per filtrare e cercare gli articoli per nome, range di prezzo e categoria. qualsiasi visitatore può comprare gli articoli inserendo i dati della carta di credito, con il pagamento gestito da stripe. Si può anche eseguire la registrazione al sito, in modo da poter salvare le proprie informazioni di pagamento. Gli admin possono gestire gli articoli del sito dal pannello admin, creando e modificando o rimuovendo gli articoli esistenti con un interfaccia facile da utilizzare. Le immagini sono hostate con Cloudinary.
 
 ## Dipendenze utilizzate
+
 ### FE
+
 - "@stripe/stripe-js"
 - "bootstrap"
 - "bcrypt" -> per il login
@@ -19,6 +23,7 @@ Semplice e-commerce di articoli di informatica e di tecnologia. Contiene una pag
 - "rxjs"
 
 ### BE
+
 - "bcrypt"
 - "body-parse"
 - "body-parser"
@@ -45,7 +50,6 @@ ng serve
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-
 ### Building
 
 To build the project run:
@@ -55,11 +59,13 @@ ng build
 ```
 
 ### Backend
+
 Il backend si trova all'interno della cartella di progetto in /backend.
 
 ```bash
 cd backend
 ```
+
 Quindi installare i pacchetti:
 
 ```bash
@@ -67,6 +73,7 @@ npm i
 ```
 
 ### Inizializzare il DB
+
 avviare un server di sql manualmente, dopodiché
 Il DB `shoplite` verrà generato all'avvio del server, vuoto.
 
@@ -75,6 +82,7 @@ avviare un server di sql manualmente, e quindi creare il database `shoplite`.
 Quindi importare il database dal file `shoplite.sql`.
 
 ### Variabili d'ambiente
+
 è necessario un file .env per avviare il DB ed avere le chiavi dei servizi di stripe e cloudinary.
 (i dati del DB possono naturalmente essere cambiati in base alle config del DB)
 
@@ -87,16 +95,19 @@ SECRET_KEY #chiave JWTtoken, inserire un valore qualsiasi
 STRIPE_SECRET_KEY = sk_test_51TAToaA7OuLNQsokYFm5W7GcMq0loiLqfHUcAe7Q56hRmJpcj08h17EjCR6TFHVngN7wZPdaizuUIThmaHD2eq5400bRcfdWD9
 
 # per le chiavi cloudinary contattare il team
-CLOUDINARY_API_KEY  
-CLOUDINARY_API_SECRET  
-CLOUDINARY_CLOUD_NAME 
+CLOUDINARY_API_KEY
+CLOUDINARY_API_SECRET
+CLOUDINARY_CLOUD_NAME
 ```
 
 A questo punto avviare il dev server con `npm run dev`.
 
 ## Utilizzo
+
 All'avvio viene generato un utente admin:
+
 - email: verdi@mail.com
 - password: 1234
+- pagamenti con carte test stripe: 4242 4242 4242 4242, 4000 0025 0000 3155
 
 Questo si può usare per modificare/eliminare/creare prodotti dalla dashboard admin.
